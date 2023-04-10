@@ -64,8 +64,10 @@ const Header = () => {
     const navigationHandler = (type) => {
         if (type === "movie") {
             navigate("/explore/movie");
-        } else {
+        } else if (type === "tv") {
             navigate("/explore/tv");
+        } else {
+            navigate("/login")
         }
         setMobileMenu(false);
     };
@@ -77,6 +79,9 @@ const Header = () => {
                     <img src={logo} alt="" />
                 </div>
                 <ul className="menuItems">
+                    <li className="menuItem">
+                        <HiOutlineSearch onClick={openSearch} />
+                    </li>
                     <li
                         className="menuItem"
                         onClick={() => navigationHandler("movie")}
@@ -89,8 +94,11 @@ const Header = () => {
                     >
                         TV Shows
                     </li>
-                    <li className="menuItem">
-                        <HiOutlineSearch onClick={openSearch} />
+                    <li
+                        className="menuItem"
+                        onClick={() => navigationHandler('login')}
+                    >
+                        Signup/Login
                     </li>
                 </ul>
 
